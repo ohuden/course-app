@@ -5,18 +5,17 @@
     </div>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="nav navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Recipes</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Shopping  List</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" (click)="onSelect('recipe')">Recipes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" (click)="onSelect('shopping-list')">Shopping  List</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
+        <li class="dropdown" appDropdown>
           <a href="#" class="dropdown-toggle nav-link" role="button">Manage</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Save Data</a></li>
-            <li><a href="#">Fetch Data</a></li>
-          </ul>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Save Data</a>
+            <a class="dropdown-item" href="#">Fetch Data</a>
+          </div>
         </li>
-
       </ul>
     </div>
   </div>
