@@ -5,7 +5,7 @@ import { ShoppingListService } from "../shopping-list/shopping-list.service";
 
 @Injectable()// This decorator allows to inject anither service to this one (ShoppingListService in this case)
 export class RecipeService {
-    recipeSelected = new EventEmitter<Recipe>(); // Adding event emmitter to subscribe to it in component.ts file 
+    
     private recipes: Recipe[] = [
         new Recipe('Roast Beef', 'This is simple description', 'https://img.taste.com.au/cXsZWW0F/taste/2016/11/basic-roast-beef-vegetables-21318-1.jpeg',
         [
