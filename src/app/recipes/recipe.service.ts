@@ -2,10 +2,11 @@ import { Recipe } from "./recipe.model";
 import { EventEmitter, Injectable } from "@angular/core";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
+import { Subject } from "rxjs";
 
 @Injectable()// This decorator allows to inject anither service to this one (ShoppingListService in this case)
 export class RecipeService {
-    
+    recipesChanged = new Subject<Recipe[]>();
     private recipes: Recipe[] = [
         new Recipe('Roast Beef', 'This is simple description', 'https://img.taste.com.au/cXsZWW0F/taste/2016/11/basic-roast-beef-vegetables-21318-1.jpeg',
         [
@@ -33,5 +34,13 @@ export class RecipeService {
 
     getRecipe(id: number) {
         return this.recipes[id];
+    }
+    addRecipe(recipe: Recipe) {
+        this.recipes.push(recipe);
+        this.recipesChanged.next(this.recipes.slice());
+    }
+    updateRecipe(index: number, newRecipe: Recipe) {
+        this.recipes[index] = newRecipe;
+        this.recipesChanged.next(this.recipes.slice());
     }
 }
